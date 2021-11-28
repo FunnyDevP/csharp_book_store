@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookStore.Data;
+using BookStore.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,11 +30,12 @@ namespace BookStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
+            services.AddScoped<BookServices>();
             var connectionString = Configuration["ConnectionStrings:Postgres"];
             services.AddDbContext<BookCategoryContext>(
                 opts => opts.UseNpgsql(connectionString));
-
+            services.AddDbContext<BookContext>(
+                opts => opts.UseNpgsql(connectionString));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookStore", Version = "v1" });

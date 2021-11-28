@@ -12,7 +12,7 @@ namespace BookStore.Models
         [Column("category_id")]
         public Guid CategoryId { get; set; }
 
-         public BookCategoryModel Category { get; set; }
+        public BookCategoryModel Category { get; set; }
 
         [Column("name", TypeName = "varchar(100)")]
         [Required]
