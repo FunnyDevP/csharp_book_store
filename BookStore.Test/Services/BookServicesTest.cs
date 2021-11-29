@@ -53,6 +53,7 @@ namespace BookStore.Test.Services
 
             Assert.Equal(2, resultGetAll.Count);
 
+            // category 1
             var bookCate1 = resultGetAll[0];
             Assert.Equal("7e68d435-e561-4fb5-be87-ee8c6efe7d28", bookCate1.CategoryId.ToString());
             Assert.Equal("cate_1", bookCate1.CategoryName);
@@ -69,6 +70,7 @@ namespace BookStore.Test.Services
             Assert.Equal("book_author_3", cate1Book2.Author);
             Assert.Equal(new decimal(11.11), cate1Book2.Price);
 
+            // category 2
             var bookCate2 = resultGetAll[1];
             Assert.Equal("2ae03aa7-2b39-4b0b-b76a-ec22872cfec6", bookCate2.CategoryId.ToString());
             Assert.Equal("cate_2", bookCate2.CategoryName);

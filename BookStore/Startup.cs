@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookStore.Data;
+using BookStore.Models;
+using BookStore.Repositories;
 using BookStore.Services;
+using BookStore.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,16 +33,16 @@ namespace BookStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<BookServices>();
+            services.AddScoped<IRepository<BookModel>, BookRepository>();
+            services.AddScoped<IRepository<BookCategoryModel>, BookCategoryRepository>();
+            services.AddScoped<IBookServices, BookServices>();
+
             var connectionString = Configuration["ConnectionStrings:Postgres"];
             services.AddDbContext<BookCategoryContext>(
                 opts => opts.UseNpgsql(connectionString));
             services.AddDbContext<BookContext>(
                 opts => opts.UseNpgsql(connectionString));
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookStore", Version = "v1" });
-            });
+            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "BookStore", Version = "v1"}); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,10 +61,7 @@ namespace BookStore
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
