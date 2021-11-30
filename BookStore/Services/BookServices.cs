@@ -42,6 +42,7 @@ namespace BookStore.Services
                     Name = b.Name,
                     Author = b.Author,
                     Price = b.Price,
+                    PublicationAt = b.PublicationAt,
                     CreatedAt = b.CreatedAt
                 }).ToList();
 

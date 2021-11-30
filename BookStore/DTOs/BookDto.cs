@@ -29,7 +29,7 @@ namespace BookStore.DTOs
             Name = bookModel.Name;
             Author = bookModel.Author;
             Price = bookModel.Price;
-            CreatedAt = bookModel.CreatedAt;
+            PublicationAt = bookModel.PublicationAt;
         }
 
         public Guid Id { get; set; }
@@ -40,6 +40,6 @@ namespace BookStore.DTOs
 
         public decimal Price { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime PublicationAt { get; set; }
     }
 }

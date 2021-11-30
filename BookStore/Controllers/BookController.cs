@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using BookStore.DTOs;
 using BookStore.Services.Interfaces;
@@ -24,6 +25,7 @@ namespace BookStore.Controllers
         public IActionResult GetAll()
         {
             var books = _bookServices.GetAll();
+            Thread.Sleep(2000);
             return Ok(books.Count == 0
                 ? new ResponseSuccess<List<BookDto>>(new List<BookDto>())
                 : new ResponseSuccess<List<BookDto>>(books));

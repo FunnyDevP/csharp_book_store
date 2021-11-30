@@ -47,6 +47,7 @@ namespace BookStore.Data
                         Name = "Getting Started with Natural Language Processing",
                         Author = "Ekaterina Kochmar",
                         Price = new decimal(19.99),
+                        PublicationAt = DateTime.Now.AddMonths(1),
                         CreatedAt = DateTime.Now
                     },
                     new()
@@ -56,6 +57,7 @@ namespace BookStore.Data
                         Name = "Inside Deep Learning",
                         Author = "Edward Raff",
                         Price = new decimal(19.99),
+                        PublicationAt = DateTime.Now.AddMonths(2),
                         CreatedAt = DateTime.Now
                     },
 
@@ -67,6 +69,7 @@ namespace BookStore.Data
                         Name = "Grokking Functional Programming",
                         Author = "Michał Płachta",
                         Price = new decimal(28.79),
+                        PublicationAt = DateTime.Now.AddMonths(3),
                         CreatedAt = DateTime.Now
                     },
                     new()
@@ -76,6 +79,7 @@ namespace BookStore.Data
                         Name = "Functional Design and Architecture",
                         Author = "Alexander Granin",
                         Price = new decimal(28.79),
+                        PublicationAt = DateTime.Now.AddMonths(4),
                         CreatedAt = DateTime.Now
                     },
 
@@ -87,6 +91,7 @@ namespace BookStore.Data
                         Name = "Making Sense of Cyber Security",
                         Author = "Thomas Kranz",
                         Price = new decimal(28.79),
+                        PublicationAt = DateTime.Now.AddMonths(5),
                         CreatedAt = DateTime.Now
                     },
                     new()
@@ -96,6 +101,7 @@ namespace BookStore.Data
                         Name = "Geometry for Programmers",
                         Author = "Oleksandr Kaleniuk",
                         Price = new decimal(28.79),
+                        PublicationAt = DateTime.Now.AddMonths(6),
                         CreatedAt = DateTime.Now
                     },
                 });

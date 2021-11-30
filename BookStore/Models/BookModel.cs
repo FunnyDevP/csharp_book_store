@@ -26,6 +26,9 @@ namespace BookStore.Models
         [Required]
         public decimal Price { get; set; }
 
+        [Column("publication_at")]
+        [Required]
+        public DateTime PublicationAt { get; set; }
         [Column("created_at")] public DateTime CreatedAt { get; set; }
     }
 }
