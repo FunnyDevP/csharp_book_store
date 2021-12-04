@@ -25,7 +25,7 @@ namespace BookStore.Controllers
         public IActionResult GetAll()
         {
             var books = _bookServices.GetAll();
-            Thread.Sleep(2000);
+            Thread.Sleep(500);
             return Ok(books.Count == 0
                 ? new ResponseSuccess<List<BookDto>>(new List<BookDto>())
                 : new ResponseSuccess<List<BookDto>>(books));
